@@ -1,0 +1,31 @@
+{
+  "name": "pro_writing_aid_api",
+  "version": "1.0.0",
+  "description": "Official api.prowritingaid.com javascript SDK",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "keywords": [
+    "prowritingaid",
+    "prowriting",
+    "writing",
+    "grammar",
+    "pwa",
+    "style"
+  ],
+  "author": "Orpheus Technology LTD <hello@prowritingaid.com> (https://prowritingaid.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prowriting/prowritingaid.javascript.git"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --recursive"
+  },
+  "dependencies": {
+    "superagent": "1.7.1"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "mocha": "^3.4.2",
+    "sinon": "1.17.3"
+  }
+}
