@@ -4,12 +4,12 @@ All URIs are relative to *https://api.prowritingaid.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**htmlPost**](HtmlApi.md#htmlPost) | **POST** /api/html | 
+[**htmlPostAsync**](HtmlApi.md#htmlPostAsync) | Uses /api/async/html and /api/async/result/html/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts)
 
 
-<a name="htmlPost"></a>
-# **htmlPost**
-> HtmlAnalysisResponse htmlPost(request)
+<a name="htmlPostAsync"></a>
+# **htmlPostAsync**
+> HtmlAnalysisResponse htmlPostAsync(request, licenseCode, settings)
 
 
 
@@ -24,7 +24,7 @@ var request = new ProWritingAidApi.HtmlAnalysisRequest(
   "General",
   "En"
 );
-api.htmlPost(request, "$licenseCode$")
+api.htmlPostAsync(request, "$licenseCode$")
   .then(function(data) {
     console.log('API called successfully. Returned data: ');
     console.log(data);
@@ -38,13 +38,11 @@ api.htmlPost(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**HtmlAnalysisRequest**](HtmlAnalysisRequest.md)|  | 
+ **request** | [**HtmlAnalysisRequest**](HtmlAnalysisRequest.md)| Input data container |
+ **licenseCode** | String | API key |
+ **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
 
 ### Return type
 
 [**HtmlAnalysisResponse**](HtmlAnalysisResponse.md)
-
-### Authorization
-
-Set correct **$licenseCode$**
 

@@ -3,7 +3,7 @@
 Official javascript [prowritingaid.com](https://prowritingaid.com) API. 
 
 - API version: v1
-- Package version: v1
+- Package version: v1.1.0
 
 ## Installation
 
@@ -39,7 +39,7 @@ var request = new ProWritingAidApi.TextAnalysisRequest(
   "General",
   "En"
 );
-api.textPost(request, "$your API key here$")
+api.textPostAsync(request, "$your API key here$")
   .then(function(data) {
     console.log('API called successfully. Returned data: ');
     console.log(data);
@@ -55,16 +55,6 @@ All URIs are relative to *https://api.prowritingaid.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProWritingAidApi.AsyncContextualThesaurusApi* | [**asyncContextualThesaurusPost**](docs/AsyncContextualThesaurusApi.md#asyncContextualThesaurusPost) | **POST** /api/async/contextualthesaurus | 
-*ProWritingAidApi.AsyncContextualThesaurusResultApi* | [**asyncContextualThesaurusResultGetResult**](docs/AsyncContextualThesaurusResultApi.md#asyncContextualThesaurusResultGetResult) | **GET** /api/async/result/contextualthesaurus/{taskId} | 
-*ProWritingAidApi.AsyncHtmlApi* | [**asyncHtmlPost**](docs/AsyncHtmlApi.md#asyncHtmlPost) | **POST** /api/async/html | 
-*ProWritingAidApi.AsyncHtmlResultApi* | [**asyncHtmlResultGetResult**](docs/AsyncHtmlResultApi.md#asyncHtmlResultGetResult) | **GET** /api/async/result/html/{taskId} | 
-*ProWritingAidApi.AsyncSummaryApi* | [**asyncSummaryPost**](docs/AsyncSummaryApi.md#asyncSummaryPost) | **POST** /api/async/summary | 
-*ProWritingAidApi.AsyncSummaryResultApi* | [**asyncSummaryResultGetResult**](docs/AsyncSummaryResultApi.md#asyncSummaryResultGetResult) | **GET** /api/async/result/summary/{taskId} | 
-*ProWritingAidApi.AsyncTextApi* | [**asyncTextPost**](docs/AsyncTextApi.md#asyncTextPost) | **POST** /api/async/text | 
-*ProWritingAidApi.AsyncTextResultApi* | [**asyncTextResultGetResult**](docs/AsyncTextResultApi.md#asyncTextResultGetResult) | **GET** /api/async/result/text/{taskId} | 
-*ProWritingAidApi.AsyncWordCloudApi* | [**asyncWordCloudPost**](docs/AsyncWordCloudApi.md#asyncWordCloudPost) | **POST** /api/async/wordcloud | 
-*ProWritingAidApi.AsyncWordCloudResultApi* | [**asyncWordCloudResultGetResult**](docs/AsyncWordCloudResultApi.md#asyncWordCloudResultGetResult) | **GET** /api/async/result/wordcloud/{taskId} | 
 *ProWritingAidApi.ContextualThesaurusApi* | [**contextualThesaurusPost**](docs/ContextualThesaurusApi.md#contextualThesaurusPost) | **POST** /api/contextualthesaurus | 
 *ProWritingAidApi.HtmlApi* | [**htmlPost**](docs/HtmlApi.md#htmlPost) | **POST** /api/html | 
 *ProWritingAidApi.SummaryApi* | [**summaryPost**](docs/SummaryApi.md#summaryPost) | **POST** /api/summary | 
@@ -80,11 +70,6 @@ Class | Method | HTTP request | Description
  - [ProWritingAidApi.AnalysisSummaryGraphItem](docs/AnalysisSummaryGraphItem.md)
  - [ProWritingAidApi.AnalysisSummaryItem](docs/AnalysisSummaryItem.md)
  - [ProWritingAidApi.AnalysisSummarySubItem](docs/AnalysisSummarySubItem.md)
- - [ProWritingAidApi.AsyncResponseContextualThesaurusResponse](docs/AsyncResponseContextualThesaurusResponse.md)
- - [ProWritingAidApi.AsyncResponseHtmlAnalysisResponse](docs/AsyncResponseHtmlAnalysisResponse.md)
- - [ProWritingAidApi.AsyncResponseSummaryAnalysisResponse](docs/AsyncResponseSummaryAnalysisResponse.md)
- - [ProWritingAidApi.AsyncResponseTextAnalysisResponse](docs/AsyncResponseTextAnalysisResponse.md)
- - [ProWritingAidApi.AsyncResponseWordCloudResponse](docs/AsyncResponseWordCloudResponse.md)
  - [ProWritingAidApi.ContextualThesaurusRequest](docs/ContextualThesaurusRequest.md)
  - [ProWritingAidApi.ContextualThesaurusResponse](docs/ContextualThesaurusResponse.md)
  - [ProWritingAidApi.DocTag](docs/DocTag.md)

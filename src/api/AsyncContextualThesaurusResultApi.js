@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ContextualThesaurusResponse'], factory);
+    define(['ApiClient', 'model/AsyncResponseContextualThesaurusResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ContextualThesaurusResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AsyncResponseContextualThesaurusResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.ProWritingAidApi) {
       root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApi.AsyncContextualThesaurusResultApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.ContextualThesaurusResponse);
+    root.ProWritingAidApi.AsyncContextualThesaurusResultApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AsyncResponseContextualThesaurusResponse);
   }
-}(this, function(ApiClient, ContextualThesaurusResponse) {
+}(this, function(ApiClient, AsyncResponseContextualThesaurusResponse) {
   'use strict';
 
   /**
@@ -84,13 +84,22 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
-      var returnType = ContextualThesaurusResponse;
+      var returnType = AsyncResponseContextualThesaurusResponse;
 
       return this.apiClient.callApi(
         '/api/async/result/contextualthesaurus/{taskId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, licenseCode
       );
+    }
+
+    /**
+     * @param {String} taskId
+     * @param {String} licenseCode API key
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ContextualThesaurusResponse}
+     */
+    this.get = function(taskId, licenseCode){
+      return this.asyncContextualThesaurusResultGetResult(taskId,licenseCode);
     }
   };
 

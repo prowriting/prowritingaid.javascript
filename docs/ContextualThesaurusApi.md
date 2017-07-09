@@ -4,12 +4,13 @@ All URIs are relative to *https://api.prowritingaid.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**contextualThesaurusPost**](ContextualThesaurusApi.md#contextualThesaurusPost) | **POST** /api/contextualthesaurus | 
+[**contextualThesaurusPostAsync**](ContextualThesaurusApi.md#contextualThesaurusPostAsync) | Uses /api/async/contextualthesaurus and /api/async/result/contextualthesaurus/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts)
 
 
-<a name="contextualThesaurusPost"></a>
-# **contextualThesaurusPost**
-> ContextualThesaurusResponse contextualThesaurusPost(request)
+
+<a name="contextualThesaurusPostAsync"></a>
+# **contextualThesaurusPostAsync**
+> ContextualThesaurusResponse contextualThesaurusPostAsync(request, licenseCode, settings)
 
 
 
@@ -24,7 +25,7 @@ var request = new ProWritingAidApi.ContextualThesaurusRequest(
   17,
   20
 );
-api.contextualThesaurusPost(request, "$licenseCode$")
+api.contextualThesaurusPostAsync(request, "$licenseCode$")
   .then(function(data) {
     console.log('API called successfully. Returned data: ');
     console.log(data);
@@ -38,13 +39,11 @@ api.contextualThesaurusPost(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**ContextualThesaurusRequest**](ContextualThesaurusRequest.md)|  | 
+ **request** | [**ContextualThesaurusRequest**](ContextualThesaurusRequest.md)| Input data container |
+ **licenseCode** | String | API key |
+ **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
+
 
 ### Return type
 
 [**ContextualThesaurusResponse**](ContextualThesaurusResponse.md)
-
-### Authorization
-
-Set correct **$licenseCode$**
-

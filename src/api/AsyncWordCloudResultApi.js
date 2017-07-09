@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/WordCloudResponse'], factory);
+    define(['ApiClient', 'model/AsyncResponseWordCloudResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/WordCloudResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AsyncResponseWordCloudResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.ProWritingAidApi) {
       root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApi.AsyncWordCloudResultApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.WordCloudResponse);
+    root.ProWritingAidApi.AsyncWordCloudResultApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AsyncResponseWordCloudResponse);
   }
-}(this, function(ApiClient, WordCloudResponse) {
+}(this, function(ApiClient, AsyncResponseWordCloudResponse) {
   'use strict';
 
   /**
@@ -84,13 +84,22 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
-      var returnType = WordCloudResponse;
+      var returnType = AsyncResponseWordCloudResponse;
 
       return this.apiClient.callApi(
         '/api/async/result/wordcloud/{taskId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, licenseCode
       );
+    }
+
+    /**
+     * @param {String} taskId
+     * @param {String} licenseCode API key
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WordCloudResponse}
+     */
+    this.get = function(taskId, licenseCode){
+      return this.asyncWordCloudResultGetResult(taskId,licenseCode);
     }
   };
 

@@ -91,6 +91,15 @@
         authNames, contentTypes, accepts, returnType, licenseCode
       );
     }
+
+    /**
+     * @param {module:model/TextAnalysisRequest} request
+     * @param {String} licenseCode API key
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AsyncResponseTextAnalysisResponse}
+     */
+    this.post = function(request, licenseCode){
+      return this.asyncTextPost(request,licenseCode);
+    }
   };
 
   return exports;

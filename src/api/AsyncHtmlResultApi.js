@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/HtmlAnalysisResponse'], factory);
+    define(['ApiClient', 'model/AsyncResponseHtmlAnalysisResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/HtmlAnalysisResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AsyncResponseHtmlAnalysisResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.ProWritingAidApi) {
       root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApi.AsyncHtmlResultApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.HtmlAnalysisResponse);
+    root.ProWritingAidApi.AsyncHtmlResultApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AsyncResponseHtmlAnalysisResponse);
   }
-}(this, function(ApiClient, HtmlAnalysisResponse) {
+}(this, function(ApiClient, AsyncResponseHtmlAnalysisResponse) {
   'use strict';
 
   /**
@@ -84,13 +84,22 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
-      var returnType = HtmlAnalysisResponse;
+      var returnType = AsyncResponseHtmlAnalysisResponse;
 
       return this.apiClient.callApi(
         '/api/async/result/html/{taskId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, licenseCode
       );
+    }
+
+    /**
+     * @param {String} taskId
+     * @param {String} licenseCode API key
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/HtmlAnalysisResponse}
+     */
+    this.get = function(taskId, licenseCode){
+      return this.asyncHtmlResultGetResult(taskId,licenseCode);
     }
   };
 

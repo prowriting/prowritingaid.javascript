@@ -25,18 +25,45 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/HtmlAnalysisResponse', 'model/HtmlAnalysisRequest'], factory);
+    define([
+      'ApiClient',
+      'model/HtmlAnalysisResponse',
+      'model/HtmlAnalysisRequest',
+      'api/AsyncAwaiter',
+      'api/AsyncHtmlApi',
+      'api/AsyncHtmlResultApi'
+    ], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/HtmlAnalysisResponse'), require('../model/HtmlAnalysisRequest'));
+    module.exports = factory(
+      require('../ApiClient'),
+      require('../model/HtmlAnalysisResponse'),
+      require('../model/HtmlAnalysisRequest'),
+      require('../api/AsyncAwaiter'),
+      require('../api/AsyncHtmlApi'),
+      require('../api/AsyncHtmlResultApi')
+      );
   } else {
     // Browser globals (root is window)
     if (!root.ProWritingAidApi) {
       root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApi.HtmlApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.HtmlAnalysisResponse, root.ProWritingAidApi.HtmlAnalysisRequest);
+    root.ProWritingAidApi.HtmlApi = factory(
+      root.ProWritingAidApi.ApiClient,
+      root.ProWritingAidApi.HtmlAnalysisResponse,
+      root.ProWritingAidApi.HtmlAnalysisRequest,
+      root.ProWritingAidApi.AsyncAwaiter,
+      root.ProWritingAidApi.AsyncHtmlApi,
+      root.ProWritingAidApi.AsyncHtmlResultApi
+    );
   }
-}(this, function(ApiClient, HtmlAnalysisResponse, HtmlAnalysisRequest) {
+}(this, function(
+  ApiClient,
+  HtmlAnalysisResponse,
+  HtmlAnalysisRequest,
+  AsyncAwaiter,
+  AsyncHtmlApi,
+  AsyncHtmlResultApi) {
   'use strict';
 
   /**
@@ -90,6 +117,21 @@
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, licenseCode
       );
+    }
+
+    /**
+     * @param {module:model/HtmlAnalysisRequest} request
+     * @param {String} licenseCode API key
+     * @param settings object with defined TimeoutInMs and AwaitCallDelay
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/HtmlAnalysisResponse}
+     */
+    this.htmlPostAsync = function (request, licenseCode, settings) {
+      return new AsyncAwaiter().await(
+        settings,
+        new AsyncHtmlApi(this.apiClient),
+        new AsyncHtmlResultApi(this.apiClient),
+        request,
+        licenseCode);
     }
   };
 

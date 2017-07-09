@@ -25,18 +25,45 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/SummaryAnalysisRequest', 'model/SummaryAnalysisResponse'], factory);
+    define([
+      'ApiClient',
+      'model/SummaryAnalysisRequest',
+      'model/SummaryAnalysisResponse',
+      'api/AsyncAwaiter',
+      'api/AsyncSummaryApi',
+      'api/AsyncSummaryResultApi'
+    ], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/SummaryAnalysisRequest'), require('../model/SummaryAnalysisResponse'));
+    module.exports = factory(
+      require('../ApiClient'),
+      require('../model/SummaryAnalysisRequest'),
+      require('../model/SummaryAnalysisResponse'),
+      require('../api/AsyncAwaiter'),
+      require('../api/AsyncSummaryApi'),
+      require('../api/AsyncSummaryResultApi'));
   } else {
     // Browser globals (root is window)
     if (!root.ProWritingAidApi) {
       root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApi.SummaryApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.SummaryAnalysisRequest, root.ProWritingAidApi.SummaryAnalysisResponse);
+    root.ProWritingAidApi.SummaryApi = factory(
+      root.ProWritingAidApi.ApiClient,
+      root.ProWritingAidApi.SummaryAnalysisRequest,
+      root.ProWritingAidApi.SummaryAnalysisResponse,
+      root.ProWritingAidApi.AsyncAwaiter,
+      root.ProWritingAidApi.AsyncSummaryApi,
+      root.ProWritingAidApi.AsyncSummaryResultApi
+    );
   }
-}(this, function(ApiClient, SummaryAnalysisRequest, SummaryAnalysisResponse) {
+}(this, function(
+  ApiClient,
+  SummaryAnalysisRequest,
+  SummaryAnalysisResponse,
+  AsyncAwaiter,
+  AsyncSummaryApi,
+  AsyncSummaryResultApi
+) {
   'use strict';
 
   /**
@@ -90,6 +117,21 @@
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, licenseCode
       );
+    }
+
+    /**
+     * @param {module:model/SummaryAnalysisRequest} request
+     * @param {String} licenseCode API key
+     * @param settings object with defined TimeoutInMs and AwaitCallDelay
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SummaryAnalysisResponse}
+     */
+    this.summaryPostAsync = function (request, licenseCode, settings) {
+      return new AsyncAwaiter().await(
+        settings,
+        new AsyncSummaryApi(this.apiClient),
+        new AsyncSummaryResultApi(this.apiClient),
+        request,
+        licenseCode);
     }
   };
 

@@ -4,12 +4,12 @@ All URIs are relative to *https://api.prowritingaid.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**summaryPost**](SummaryApi.md#summaryPost) | **POST** /api/summary | 
+[**summaryPostAsync**](SummaryApi.md#summaryPostAsync) | Uses /api/async/summary and /api/summary/result/html/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts)
 
 
-<a name="summaryPost"></a>
-# **summaryPost**
-> SummaryAnalysisResponse summaryPost(request)
+<a name="summaryPostAsync"></a>
+# **summaryPostAsync**
+> SummaryAnalysisResponse summaryPostAsync(request, licenseCode, settings)
 
 
 
@@ -24,7 +24,7 @@ var request = new ProWritingAidApi.SummaryAnalysisRequest(
   "General",
   "En"
 );
-api.summaryPost(request, "$licenseCode$")
+api.summaryPostAsync(request, "$licenseCode$")
   .then(function(data) {
     console.log('API called successfully. Returned data: ');
     console.log(data);
@@ -39,13 +39,12 @@ api.summaryPost(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SummaryAnalysisRequest**](SummaryAnalysisRequest.md)|  | 
+ **request** | [**SummaryAnalysisRequest**](SummaryAnalysisRequest.md)| Input data container |
+ **licenseCode** | String | API key |
+ **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
+
 
 ### Return type
 
 [**SummaryAnalysisResponse**](SummaryAnalysisResponse.md)
-
-### Authorization
-
-Set correct **$licenseCode$**
 

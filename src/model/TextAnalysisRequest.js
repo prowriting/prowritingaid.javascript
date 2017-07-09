@@ -91,7 +91,7 @@
       }
     }
     return obj;
-  };
+  }
 
   /**
    * Text to be processed

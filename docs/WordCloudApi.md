@@ -4,12 +4,12 @@ All URIs are relative to *https://api.prowritingaid.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**wordCloudPost**](WordCloudApi.md#wordCloudPost) | **POST** /api/wordcloud | 
+[**wordCloudPostAsync**](WordCloudApi.md#wordCloudPostAsync) | Uses /api/async/wordcloud and /api/summary/result/wordcloud/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts) 
 
 
-<a name="wordCloudPost"></a>
-# **wordCloudPost**
-> WordCloudResponse wordCloudPost(request)
+<a name="wordCloudPostAsync"></a>
+# **wordCloudPostAsync**
+> WordCloudResponse wordCloudPostAsync(request, licenseCode, settings)
 
 
 
@@ -32,7 +32,7 @@ var request = new ProWritingAidApi.WordCloudRequest(
   "General",
   "En"
 );
-api.wordCloudPost(request, "$licenseCode$")
+api.wordCloudPostAsync(request, "$licenseCode$")
   .then(function(data) {
     console.log('API called successfully. Returned data: ');
     console.log(data);
@@ -46,13 +46,11 @@ api.wordCloudPost(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**WordCloudRequest**](WordCloudRequest.md)|  | 
+ **request** | [**WordCloudRequest**](WordCloudRequest.md)|  |
+ **licenseCode** | String | API key |
+ **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
+
 
 ### Return type
 
 [**WordCloudResponse**](WordCloudResponse.md)
-
-### Authorization
-
-Set correct **$licenseCode$**
-

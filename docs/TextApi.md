@@ -4,12 +4,11 @@ All URIs are relative to *https://api.prowritingaid.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**textPost**](TextApi.md#textPost) | **POST** /api/text | 
+[**textPostAsync**](TextApi.md#textPostAsync) | Uses /api/async/text and /api/summary/result/text/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts)
 
-
-<a name="textPost"></a>
-# **textPost**
-> TextAnalysisResponse textPost(request)
+<a name="textPostAsync"></a>
+# **textPostAsync**
+> TextAnalysisResponse textPostAsync(request, licenseCode, settings)
 
 
 
@@ -24,7 +23,7 @@ var request = new ProWritingAidApi.TextAnalysisRequest(
   "General",
   "En"
 );
-api.textPost(request, "$licenseCode$")
+api.textPostAsync(request, "$licenseCode$")
   .then(
     function(data) {
       console.log('API called successfully. Returned data: ' + data);
@@ -39,13 +38,11 @@ api.textPost(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**TextAnalysisRequest**](TextAnalysisRequest.md)|  | 
+ **request** | [**TextAnalysisRequest**](TextAnalysisRequest.md)| Input data container |
+ **licenseCode** | String | API key |
+ **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
+
 
 ### Return type
 
 [**TextAnalysisResponse**](TextAnalysisResponse.md)
-
-### Authorization
-
-Set correct **$licenseCode$**
-
