@@ -3,7 +3,6 @@
   "version": "1.1.0",
   "description": "Official api.prowritingaid.com javascript SDK",
   "license": "Apache-2.0",
-  "main": "src/index.js",
   "keywords": [
     "prowritingaid",
     "prowriting",
@@ -17,6 +16,7 @@
     "type": "git",
     "url": "https://github.com/prowriting/prowritingaid.javascript.git"
   },
+  "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
