@@ -17,32 +17,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AnalysisSummaryGraphItem'], factory);
+    define(['ApiClient', 'model/EntryMeaning'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./AnalysisSummaryGraphItem'));
+    module.exports = factory(require('../ApiClient'), require('./EntryMeaning'));
   } else {
     // Browser globals (root is window)
     if (!root.ProWritingAidApiV2) {
       root.ProWritingAidApiV2 = {};
     }
-    root.ProWritingAidApiV2.AnalysisSummaryGraph = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.AnalysisSummaryGraphItem);
+    root.ProWritingAidApiV2.ThesaurusResponse = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.EntryMeaning);
   }
-}(this, function(ApiClient, AnalysisSummaryGraphItem) {
+}(this, function(ApiClient, EntryMeaning) {
   'use strict';
 
 
 
 
   /**
-   * The AnalysisSummaryGraph model module.
-   * @module model/AnalysisSummaryGraph
+   * The ThesaurusResponse model module.
+   * @module model/ThesaurusResponse
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>AnalysisSummaryGraph</code>.
-   * @alias module:model/AnalysisSummaryGraph
+   * Constructs a new <code>ThesaurusResponse</code>.
+   * @alias module:model/ThesaurusResponse
    * @class
    */
   var exports = function() {
@@ -53,34 +53,36 @@
   };
 
   /**
-   * Constructs a <code>AnalysisSummaryGraph</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ThesaurusResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/AnalysisSummaryGraph} obj Optional instance to populate.
-   * @return {module:model/AnalysisSummaryGraph} The populated <code>AnalysisSummaryGraph</code> instance.
+   * @param {module:model/ThesaurusResponse} obj Optional instance to populate.
+   * @return {module:model/ThesaurusResponse} The populated <code>ThesaurusResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('Name')) {
-        obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
+      if (data.hasOwnProperty('Word')) {
+        obj['Word'] = ApiClient.convertToType(data['Word'], 'String');
       }
-      if (data.hasOwnProperty('Items')) {
-        obj['Items'] = ApiClient.convertToType(data['Items'], [AnalysisSummaryGraphItem]);
+      if (data.hasOwnProperty('Meanings')) {
+        obj['Meanings'] = ApiClient.convertToType(data['Meanings'], [EntryMeaning]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} Name
+   * The word that was searched
+   * @member {String} Word
    */
-  exports.prototype['Name'] = undefined;
+  exports.prototype['Word'] = undefined;
   /**
-   * @member {Array.<module:model/AnalysisSummaryGraphItem>} Items
+   * List of context-specific meanings
+   * @member {Array.<module:model/EntryMeaning>} Meanings
    */
-  exports.prototype['Items'] = undefined;
+  exports.prototype['Meanings'] = undefined;
 
 
 

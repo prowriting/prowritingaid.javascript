@@ -1,7 +1,7 @@
 {
-  "name": "pro_writing_aid_api",
-  "version": "1.1.0",
-  "description": "Official api.prowritingaid.com javascript SDK",
+  "name": "pro_writing_aid_api_v2",
+  "version": "2.0.0",
+  "description": "Official_ProWritingAid_API_Version_2",
   "license": "Apache-2.0",
   "keywords": [
     "prowritingaid",
@@ -20,8 +20,11 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
+  "browser": {
+    "fs": false
+  },
   "dependencies": {
-    "superagent": "1.7.1"
+    "superagent": "3.5.2"
   },
   "devDependencies": {
     "expect.js": "~0.3.1",

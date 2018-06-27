@@ -1,44 +1,32 @@
-# ProWritingAidApi.WordCloudApi
+# ProWritingAidApiV2.WordCloudApi
 
-All URIs are relative to *https://api.prowritingaid.com*
+All URIs are relative to *https://localhost:5004*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**wordCloudPostAsync**](WordCloudApi.md#wordCloudPostAsync) | Uses /api/async/wordcloud and /api/summary/result/wordcloud/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts) 
+[**get**](WordCloudApi.md#get) | **GET** /api/async/wordcloud/result/{taskId} | 
+[**post**](WordCloudApi.md#post) | **POST** /api/async/wordcloud | 
 
 
-<a name="wordCloudPostAsync"></a>
-# **wordCloudPostAsync**
-> WordCloudResponse wordCloudPostAsync(request, licenseCode, settings)
+<a name="get"></a>
+# **get**
+> AsyncResponseWordCloudResponse get(taskId)
 
 
 
 ### Example
 ```javascript
-var ProWritingAidApi = require('pro_writing_aid_api');
+var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
 
-var api = new ProWritingAidApi.WordCloudApi();
-var request = new ProWritingAidApi.WordCloudRequest(
-  "I'd like to by that toy. wood you help me? I have twp more brothers.",
-  "EveryWhichWay",
-  "IntelligentCase",
-  "Earthy",
-  200000,
-  true,
-  "Arial",
-  500,
-  500,
-  false,
-  "General",
-  "En"
-);
-api.wordCloudPostAsync(request, "$licenseCode$")
-  .then(function(data) {
-    console.log('API called successfully. Returned data: ');
-    console.log(data);
-  }, function(error) {
-    console.error(error);
-  });
+var apiInstance = new ProWritingAidApiV2.WordCloudApi();
+
+var taskId = "taskId_example"; // String | 
+
+apiInstance.get(taskId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
 ```
 
@@ -46,11 +34,59 @@ api.wordCloudPostAsync(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**WordCloudRequest**](WordCloudRequest.md)|  |
- **licenseCode** | String | API key |
- **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
-
+ **taskId** | **String**|  | 
 
 ### Return type
 
-[**WordCloudResponse**](WordCloudResponse.md)
+[**AsyncResponseWordCloudResponse**](AsyncResponseWordCloudResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json
+
+<a name="post"></a>
+# **post**
+> AsyncResponseWordCloudResponse post(requestp)
+
+
+
+### Example
+```javascript
+var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
+
+var apiInstance = new ProWritingAidApiV2.WordCloudApi();
+
+var requestp = new ProWritingAidApiV2.WordCloudRequest(); // WordCloudRequest | 
+
+apiInstance.post(requestp).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestp** | [**WordCloudRequest**](WordCloudRequest.md)|  | 
+
+### Return type
+
+[**AsyncResponseWordCloudResponse**](AsyncResponseWordCloudResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json
+

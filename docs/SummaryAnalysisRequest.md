@@ -1,12 +1,12 @@
-# ProWritingAidApi.SummaryAnalysisRequest
+# ProWritingAidApiV2.SummaryAnalysisRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **text** | **String** | Text to be analyzed | 
 **settings** | [**AnalysisSettings**](AnalysisSettings.md) | Analysis settings | 
-**style** | **String** | Document&#39;s writing style | 
-**language** | **String** | Document&#39;s language  &lt;remarks&gt;  Set correct UK/US language to get region-specific suggestions  &lt;/remarks&gt; | 
+**style** | **String** | Document&#39;s writing style | [default to &#39;General&#39;]
+**language** | **String** | Document&#39;s language. Set correct UK/US language to get region-specific suggestions | [default to &#39;en&#39;]
 
 
 <a name="StyleEnum"></a>

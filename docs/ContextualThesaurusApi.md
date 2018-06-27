@@ -1,37 +1,39 @@
-# ProWritingAidApi.ContextualThesaurusApi
+# ProWritingAidApiV2.ContextualThesaurusApi
 
-All URIs are relative to *https://api.prowritingaid.com*
+All URIs are relative to *https://localhost:5004*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**contextualThesaurusPostAsync**](ContextualThesaurusApi.md#contextualThesaurusPostAsync) | Uses /api/async/contextualthesaurus and /api/async/result/contextualthesaurus/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts)
+[**get**](ContextualThesaurusApi.md#get) | **GET** /api/async/contextualthesaurus/result/{taskId} | 
+[**post**](ContextualThesaurusApi.md#post) | **POST** /api/async/contextualthesaurus | 
 
 
-
-<a name="contextualThesaurusPostAsync"></a>
-# **contextualThesaurusPostAsync**
-> ContextualThesaurusResponse contextualThesaurusPostAsync(request, licenseCode, settings)
+<a name="get"></a>
+# **get**
+> AsyncResponseContextualThesaurusResponse get(taskId)
 
 
 
 ### Example
 ```javascript
-var ProWritingAidApi = require('pro_writing_aid_api');
+var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
+var defaultClient = ProWritingAidApiV2.ApiClient.instance;
 
-var api = new ProWritingAidApi.ContextualThesaurusApi();
-var request = new ProWritingAidApi.ContextualThesaurusRequest(
-  "This is a sample text in English to test the sdk thesaurus. " +
-  "This is a second paragraph in the document. This  is a new line.",
-  17,
-  20
-);
-api.contextualThesaurusPostAsync(request, "$licenseCode$")
-  .then(function(data) {
-    console.log('API called successfully. Returned data: ');
-    console.log(data);
-  }, function(error) {
-    console.error(error);
-  });
+// Configure API key authorization: licenseCode
+var licenseCode = defaultClient.authentications['licenseCode'];
+licenseCode.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//licenseCode.apiKeyPrefix = 'Token';
+
+var apiInstance = new ProWritingAidApiV2.ContextualThesaurusApi();
+
+var taskId = "taskId_example"; // String | 
+
+apiInstance.get(taskId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
 ```
 
@@ -39,11 +41,66 @@ api.contextualThesaurusPostAsync(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**ContextualThesaurusRequest**](ContextualThesaurusRequest.md)| Input data container |
- **licenseCode** | String | API key |
- **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
-
+ **taskId** | **String**|  | 
 
 ### Return type
 
-[**ContextualThesaurusResponse**](ContextualThesaurusResponse.md)
+[**AsyncResponseContextualThesaurusResponse**](AsyncResponseContextualThesaurusResponse.md)
+
+### Authorization
+
+[licenseCode](../README.md#licenseCode)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json
+
+<a name="post"></a>
+# **post**
+> AsyncResponseContextualThesaurusResponse post(requestp)
+
+
+
+### Example
+```javascript
+var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
+var defaultClient = ProWritingAidApiV2.ApiClient.instance;
+
+// Configure API key authorization: licenseCode
+var licenseCode = defaultClient.authentications['licenseCode'];
+licenseCode.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//licenseCode.apiKeyPrefix = 'Token';
+
+var apiInstance = new ProWritingAidApiV2.ContextualThesaurusApi();
+
+var requestp = new ProWritingAidApiV2.ContextualThesaurusRequest(); // ContextualThesaurusRequest | 
+
+apiInstance.post(requestp).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestp** | [**ContextualThesaurusRequest**](ContextualThesaurusRequest.md)|  | 
+
+### Return type
+
+[**AsyncResponseContextualThesaurusResponse**](AsyncResponseContextualThesaurusResponse.md)
+
+### Authorization
+
+[licenseCode](../README.md#licenseCode)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json
+

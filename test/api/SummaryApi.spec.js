@@ -45,31 +45,11 @@
           "General",
           "En"
         );
-        api.summaryPost(request, ProWritingAidApi.TestLicenseCode)
+        var licenseCode = ProWritingAidApi.ApiClient.instance.authentications['licenseCode'];
+        licenseCode.apiKey = 'your license code';
+        api.post(request)
           .then(function (data) {
-            console.log('API called successfully. Returned data: ');
-            console.log(data);
-            expect(data.Text).to.not.be.empty();
-            done();
-          }, function (error) {
-            done(error);
-          });
-      });
-    });
-  });
-
-  describe('SummaryApi', function () {
-    describe('summaryPostAsync', function () {
-      it('should call summaryPostAsync successfully', function (done) {
-        var api = new ProWritingAidApi.SummaryApi();
-        var request = new ProWritingAidApi.SummaryAnalysisRequest(
-          getLongText(),
-          new ProWritingAidApi.AnalysisSettings(),
-          "General",
-          "En"
-        );
-        api.summaryPostAsync(request, ProWritingAidApi.TestLicenseCode)
-          .then(function (data) {
+            data = data.Result;
             console.log('API called successfully. Returned data: ');
             console.log(data);
             expect(data.Text).to.not.be.empty();

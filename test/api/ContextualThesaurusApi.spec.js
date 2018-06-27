@@ -45,8 +45,11 @@
           17,
           20
         );
-        api.contextualThesaurusPost(request, ProWritingAidApi.TestLicenseCode)
+        var licenseCode = ProWritingAidApi.ApiClient.instance.authentications['licenseCode'];
+        licenseCode.apiKey = 'your license code';
+        api.post(request)
           .then(function (data) {
+            data = data.Result;
             console.log('API called successfully. Returned data: ');
             console.log(data);
             expect(data.Suggestions).to.not.be.empty();
@@ -58,30 +61,5 @@
       });
     });
   });
-
-  describe('ContextualThesaurusApi', function () {
-    describe('contextualThesaurusPostAsync', function () {
-      it('should call contextualThesaurusPostAsync successfully', function (done) {
-        var api = new ProWritingAidApi.ContextualThesaurusApi();
-        var request = new ProWritingAidApi.ContextualThesaurusRequest(
-          "This is a sample text in English to test the sdk thesaurus. " +
-          "This is a second paragraph in the document. This  is a new line.",
-          17,
-          20
-        );
-        api.contextualThesaurusPostAsync(request, ProWritingAidApi.TestLicenseCode)
-          .then(function (data) {
-            console.log('API called successfully. Returned data: ');
-            console.log(data);
-            expect(data.Suggestions).to.not.be.empty();
-            expect(data.Suggestions[0]).to.be("paragraph");
-            done();
-          }, function (error) {
-            done(error);
-          });
-      });
-    });
-  });
-
 
 }));

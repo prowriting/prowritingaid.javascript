@@ -45,8 +45,11 @@
           "General",
           "En"
         );
-        api.htmlPost(request, ProWritingAidApi.TestLicenseCode)
+        var licenseCode = ProWritingAidApi.ApiClient.instance.authentications['licenseCode'];
+        licenseCode.apiKey = 'your license code';
+        api.post(request)
           .then(function (data) {
+            data = data.Result;
             console.log('API called successfully. Returned data: ');
             console.log(data);
             expect(data.WordCount).to.be(16);
@@ -55,31 +58,6 @@
           }, function (error) {
             done(error);
           });
-      });
-    });
-  });
-
-  describe('HtmlApi', function () {
-    describe('htmlPostAsync', function () {
-      it('should call htmlPostAsync successfully', function (done) {
-        var api = new ProWritingAidApi.HtmlApi();
-        var request = new ProWritingAidApi.HtmlAnalysisRequest(
-          getLongText(),
-          ['grammar'],
-          "General",
-          "En"
-        );
-
-        api.htmlPostAsync(request, ProWritingAidApi.TestLicenseCode)
-          .then(function (data) {
-            console.log('API called successfully. Returned data: ');
-            console.log(data);
-            expect(data.WordCount).to.be(22795);
-            expect(data.Html).to.not.be.empty();
-            done();
-          }, function (error) {
-            done(error);
-          })
       });
     });
   });

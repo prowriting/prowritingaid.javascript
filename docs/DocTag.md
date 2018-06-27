@@ -1,10 +1,10 @@
-# ProWritingAidApi.DocTag
+# ProWritingAidApiV2.DocTag
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**startPos** | **Integer** | The start position of the suggestion. 0 based | 
-**endPos** | **Integer** | The end position of the suggestion. 0 based | 
+**startPos** | **Number** | The start position of the suggestion. 0 based | 
+**endPos** | **Number** | The end position of the suggestion. 0 based | 
 **report** | **String** | Report Id | [optional] 
 **urls** | **[String]** | List of source documents found by plagiarism checker | [optional] 
 **category** | **String** | Suggestion&#39;s category | [optional] 
@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **isSubTag** | **Boolean** | Identifies that this suggestion is a part of larger one | 
 **helpId** | **String** | TODO DOCS | [optional] 
 **id** | **String** | Suggestion&#39;s Id | [optional] 
+**invisible** | **Boolean** | Is tag invisible? | [optional] 
 
 

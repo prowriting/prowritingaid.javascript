@@ -54,39 +54,11 @@
           "General",
           "En"
         );
-        api.wordCloudPost(request, ProWritingAidApi.TestLicenseCode)
+        var licenseCode = ProWritingAidApi.ApiClient.instance.authentications['licenseCode'];
+        licenseCode.apiKey = 'your license code';
+        api.post(request, ProWritingAidApi.TestLicenseCode)
           .then(function (data) {
-            console.log('API called successfully. Returned data: ');
-            console.log(data);
-            expect(data.Url).to.not.be(undefined);
-            done();
-          }, function (error) {
-            done(error);
-          });
-      });
-    });
-  });
-
-  describe('WordCloudApi', function () {
-    describe('wordCloudPostAsync', function () {
-      it('should call wordCloudPostAsync successfully', function (done) {
-        var api = new ProWritingAidApi.WordCloudApi();
-        var request = new ProWritingAidApi.WordCloudRequest(
-          getLongText(),
-          "EveryWhichWay",
-          "IntelligentCase",
-          "Earthy",
-          200000,
-          true,
-          "Arial",
-          500,
-          500,
-          false,
-          "General",
-          "En"
-        );
-        api.wordCloudPostAsync(request, ProWritingAidApi.TestLicenseCode)
-          .then(function (data) {
+            data = data.Result;
             console.log('API called successfully. Returned data: ');
             console.log(data);
             expect(data.Url).to.not.be(undefined);

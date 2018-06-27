@@ -26,7 +26,7 @@
     if (!root.ProWritingAidApiV2) {
       root.ProWritingAidApiV2 = {};
     }
-    root.ProWritingAidApiV2.SummaryAnalysisResponse = factory(root.ProWritingAidApiV2.ApiClient);
+    root.ProWritingAidApiV2.EntryMeaning = factory(root.ProWritingAidApiV2.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -35,45 +35,61 @@
 
 
   /**
-   * The SummaryAnalysisResponse model module.
-   * @module model/SummaryAnalysisResponse
+   * The EntryMeaning model module.
+   * @module model/EntryMeaning
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>SummaryAnalysisResponse</code>.
-   * @alias module:model/SummaryAnalysisResponse
+   * Constructs a new <code>EntryMeaning</code>.
+   * Thesaurus meaning in one context
+   * @alias module:model/EntryMeaning
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
+
+
   };
 
   /**
-   * Constructs a <code>SummaryAnalysisResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>EntryMeaning</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/SummaryAnalysisResponse} obj Optional instance to populate.
-   * @return {module:model/SummaryAnalysisResponse} The populated <code>SummaryAnalysisResponse</code> instance.
+   * @param {module:model/EntryMeaning} obj Optional instance to populate.
+   * @return {module:model/EntryMeaning} The populated <code>EntryMeaning</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('Text')) {
-        obj['Text'] = ApiClient.convertToType(data['Text'], 'String');
+      if (data.hasOwnProperty('Meaning')) {
+        obj['Meaning'] = ApiClient.convertToType(data['Meaning'], 'String');
+      }
+      if (data.hasOwnProperty('PartOfSpeech')) {
+        obj['PartOfSpeech'] = ApiClient.convertToType(data['PartOfSpeech'], 'String');
+      }
+      if (data.hasOwnProperty('Synonyms')) {
+        obj['Synonyms'] = ApiClient.convertToType(data['Synonyms'], ['String']);
       }
     }
     return obj;
   }
 
   /**
-   * SUmmary report renderred as html
-   * @member {String} Text
+   * @member {String} Meaning
    */
-  exports.prototype['Text'] = undefined;
+  exports.prototype['Meaning'] = undefined;
+  /**
+   * @member {String} PartOfSpeech
+   */
+  exports.prototype['PartOfSpeech'] = undefined;
+  /**
+   * @member {Array.<String>} Synonyms
+   */
+  exports.prototype['Synonyms'] = undefined;
 
 
 

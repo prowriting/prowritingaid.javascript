@@ -1,37 +1,39 @@
-# ProWritingAidApi.SummaryApi
+# ProWritingAidApiV2.SummaryApi
 
-All URIs are relative to *https://api.prowritingaid.com*
+All URIs are relative to *https://localhost:5004*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**summaryPostAsync**](SummaryApi.md#summaryPostAsync) | Uses /api/async/summary and /api/summary/result/html/{taskId} | Universal processing method automatically identifies how to process input text (synchronously for short texts and via queue for large texts)
+[**get**](SummaryApi.md#get) | **GET** /api/async/summary/result/{taskId} | 
+[**post**](SummaryApi.md#post) | **POST** /api/async/summary | 
 
 
-<a name="summaryPostAsync"></a>
-# **summaryPostAsync**
-> SummaryAnalysisResponse summaryPostAsync(request, licenseCode, settings)
+<a name="get"></a>
+# **get**
+> AsyncResponseSummaryAnalysisResponse get(taskId)
 
 
 
 ### Example
 ```javascript
-var ProWritingAidApi = require('pro_writing_aid_api');
+var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
+var defaultClient = ProWritingAidApiV2.ApiClient.instance;
 
-var api = new ProWritingAidApi.SummaryApi();
-var request = new ProWritingAidApi.SummaryAnalysisRequest(
-  "<p>I'd like to by that toy. wood you help me? I have twp more brothers.</p>",
-  new ProWritingAidApi.AnalysisSettings(),
-  "General",
-  "En"
-);
-api.summaryPostAsync(request, "$licenseCode$")
-  .then(function(data) {
-    console.log('API called successfully. Returned data: ');
-    console.log(data);
-    done();
-  }, function(error) {
-    console.error(error);
-  });
+// Configure API key authorization: licenseCode
+var licenseCode = defaultClient.authentications['licenseCode'];
+licenseCode.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//licenseCode.apiKeyPrefix = 'Token';
+
+var apiInstance = new ProWritingAidApiV2.SummaryApi();
+
+var taskId = "taskId_example"; // String | 
+
+apiInstance.get(taskId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
 ```
 
@@ -39,12 +41,66 @@ api.summaryPostAsync(request, "$licenseCode$")
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SummaryAnalysisRequest**](SummaryAnalysisRequest.md)| Input data container |
- **licenseCode** | String | API key |
- **settings** | Object / undefined | Optional parameter with defined **TimeoutInMs** and **AwaitCallDelay** properties |
-
+ **taskId** | **String**|  | 
 
 ### Return type
 
-[**SummaryAnalysisResponse**](SummaryAnalysisResponse.md)
+[**AsyncResponseSummaryAnalysisResponse**](AsyncResponseSummaryAnalysisResponse.md)
+
+### Authorization
+
+[licenseCode](../README.md#licenseCode)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json
+
+<a name="post"></a>
+# **post**
+> AsyncResponseSummaryAnalysisResponse post(requestp)
+
+
+
+### Example
+```javascript
+var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
+var defaultClient = ProWritingAidApiV2.ApiClient.instance;
+
+// Configure API key authorization: licenseCode
+var licenseCode = defaultClient.authentications['licenseCode'];
+licenseCode.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//licenseCode.apiKeyPrefix = 'Token';
+
+var apiInstance = new ProWritingAidApiV2.SummaryApi();
+
+var requestp = new ProWritingAidApiV2.SummaryAnalysisRequest(); // SummaryAnalysisRequest | 
+
+apiInstance.post(requestp).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestp** | [**SummaryAnalysisRequest**](SummaryAnalysisRequest.md)|  | 
+
+### Return type
+
+[**AsyncResponseSummaryAnalysisResponse**](AsyncResponseSummaryAnalysisResponse.md)
+
+### Authorization
+
+[licenseCode](../README.md#licenseCode)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json
 

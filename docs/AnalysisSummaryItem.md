@@ -1,4 +1,4 @@
-# ProWritingAidApi.AnalysisSummaryItem
+# ProWritingAidApiV2.AnalysisSummaryItem
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **isPositive** | **String** |  | [optional] 
 **category** | [**SuggestionCategory**](SuggestionCategory.md) |  | [optional] 
 **categoryName** | **String** |  | [optional] 
-**numIssues** | **Integer** |  | [optional] 
+**numIssues** | **Number** |  | [optional] 
 
 
 <a name="IsPositiveEnum"></a>
