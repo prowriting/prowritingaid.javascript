@@ -30,7 +30,7 @@ npm install prowriting/prowritingaid.javascript --save
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-var ProWritingAidApi = require('pro_writing_aid_api_v2');
+var ProWritingAidApi = require('pro_writing_aid_api');
 
 var api = new ProWritingAidApi.TextApi();
 api.apiClient.basePath="https://api.prowritingaid.com";
