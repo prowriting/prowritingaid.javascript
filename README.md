@@ -36,7 +36,7 @@ var api = new ProWritingAidApi.TextApi();
 api.apiClient.basePath="https://api.prowritingaid.com";
 api.apiClient.defaultHeaders={'licenseCode': 'your license code'}
 var request = new ProWritingAidApi.TextAnalysisRequest(
-  "I'd like to by that toy. wood you help me? I have twp more brothers.",
+  "I couldnt wait any any longer, I new what I hadd to do",
   ['grammar'],
   "General",
   "En"
@@ -63,7 +63,7 @@ Class | Method | HTTP request | Description
 *ProWritingAidApi.SummaryApi* | [**get**](docs/SummaryApi.md#get) | **GET** /api/async/summary/result/{taskId} | Tries to get the result of a request using the task id of the request
 *ProWritingAidApi.SummaryApi* | [**post**](docs/SummaryApi.md#post) | **POST** /api/async/summary | Gets the summary analysis of a document
 *ProWritingAidApi.TextApi* | [**get**](docs/TextApi.md#get) | **GET** /api/async/text/result/{taskId} | Tries to get the result of a request using the task id of the request
-*ProWritingAidApi.TextApi* | [**post**](docs/TextApi.md#post) | **POST** /api/async/text | Analyses html and adds suggestions tags to it
+*ProWritingAidApi.TextApi* | [**post**](docs/TextApi.md#post) | **POST** /api/async/text | Analyses text and returns tags for it
 *ProWritingAidApi.ThesaurusApi* | [**post**](docs/ThesaurusApi.md#post) | **POST** /api/thesaurus | Returns the thesaurus entries for a specific word
 *ProWritingAidApi.WordCloudApi* | [**get**](docs/WordCloudApi.md#get) | **GET** /api/async/wordcloud/result/{taskId} | Tries to get the result of a request using the task id of the request
 *ProWritingAidApi.WordCloudApi* | [**post**](docs/WordCloudApi.md#post) | **POST** /api/async/wordcloud | Analyses text and returns a word cloud (as an image)
