@@ -1,11 +1,11 @@
-# ProWritingAidApiV2.WordCloudApi
+# ProWritingAidApi.WordCloudApi
 
 All URIs are relative to *https://localhost:5004*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get**](WordCloudApi.md#get) | **GET** /api/async/wordcloud/result/{taskId} | 
-[**post**](WordCloudApi.md#post) | **POST** /api/async/wordcloud | 
+[**get**](WordCloudApi.md#get) | **GET** /api/async/wordcloud/result/{taskId} | Tries to get the result of a request using the task id of the request
+[**post**](WordCloudApi.md#post) | **POST** /api/async/wordcloud | Analyses text and returns a word cloud (as an image)
 
 
 <a name="get"></a>
@@ -13,12 +13,13 @@ Method | HTTP request | Description
 > AsyncResponseWordCloudResponse get(taskId)
 
 
+Tries to get the result of a request using the task id of the request
 
 ### Example
 ```javascript
-var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
+var ProWritingAidApi = require('pro_writing_aid_api');
 
-var apiInstance = new ProWritingAidApiV2.WordCloudApi();
+var apiInstance = new ProWritingAidApi.WordCloudApi();
 
 var taskId = "taskId_example"; // String | 
 
@@ -54,14 +55,15 @@ No authorization required
 > AsyncResponseWordCloudResponse post(requestp)
 
 
+Analyses text and returns a word cloud (as an image)
 
 ### Example
 ```javascript
-var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
+var ProWritingAidApi = require('pro_writing_aid_api');
 
-var apiInstance = new ProWritingAidApiV2.WordCloudApi();
+var apiInstance = new ProWritingAidApi.WordCloudApi();
 
-var requestp = new ProWritingAidApiV2.WordCloudRequest(); // WordCloudRequest | 
+var requestp = new ProWritingAidApi.WordCloudRequest(); // WordCloudRequest | 
 
 apiInstance.post(requestp).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

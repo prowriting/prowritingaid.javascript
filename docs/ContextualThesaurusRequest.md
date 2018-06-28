@@ -1,4 +1,4 @@
-# ProWritingAidApiV2.ContextualThesaurusRequest
+# ProWritingAidApi.ContextualThesaurusRequest
 
 ## Properties
 Name | Type | Description | Notes

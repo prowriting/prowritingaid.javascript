@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./AnalysisSummaryItem'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.AnalysisSummary = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.AnalysisSummaryItem);
+    root.ProWritingAidApi.AnalysisSummary = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AnalysisSummaryItem);
   }
 }(this, function(ApiClient, AnalysisSummaryItem) {
   'use strict';

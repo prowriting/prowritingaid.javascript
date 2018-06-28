@@ -1,4 +1,4 @@
-# ProWritingAidApiV2.WordCloudRequest
+# ProWritingAidApi.WordCloudRequest
 
 ## Properties
 Name | Type | Description | Notes

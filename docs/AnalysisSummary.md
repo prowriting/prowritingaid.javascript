@@ -1,4 +1,4 @@
-# ProWritingAidApiV2.AnalysisSummary
+# ProWritingAidApi.AnalysisSummary
 
 ## Properties
 Name | Type | Description | Notes

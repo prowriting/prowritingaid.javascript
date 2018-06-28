@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./WordCloudResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.AsyncResponseWordCloudResponse = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.WordCloudResponse);
+    root.ProWritingAidApi.AsyncResponseWordCloudResponse = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.WordCloudResponse);
   }
 }(this, function(ApiClient, WordCloudResponse) {
   'use strict';

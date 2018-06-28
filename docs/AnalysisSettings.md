@@ -1,4 +1,4 @@
-# ProWritingAidApiV2.AnalysisSettings
+# ProWritingAidApi.AnalysisSettings
 
 ## Properties
 Name | Type | Description | Notes

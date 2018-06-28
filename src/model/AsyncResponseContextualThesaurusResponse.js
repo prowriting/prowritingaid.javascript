@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./ContextualThesaurusResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.AsyncResponseContextualThesaurusResponse = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.ContextualThesaurusResponse);
+    root.ProWritingAidApi.AsyncResponseContextualThesaurusResponse = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.ContextualThesaurusResponse);
   }
 }(this, function(ApiClient, ContextualThesaurusResponse) {
   'use strict';

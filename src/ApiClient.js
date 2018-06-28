@@ -23,10 +23,10 @@
     module.exports = factory(require('superagent'), require('querystring'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.ApiClient = factory(root.superagent, root.querystring);
+    root.ProWritingAidApi.ApiClient = factory(root.superagent, root.querystring);
   }
 }(this, function(superagent, querystring) {
   'use strict';

@@ -1,11 +1,11 @@
-# ProWritingAidApiV2.ContextualThesaurusApi
+# ProWritingAidApi.ContextualThesaurusApi
 
 All URIs are relative to *https://localhost:5004*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get**](ContextualThesaurusApi.md#get) | **GET** /api/async/contextualthesaurus/result/{taskId} | 
-[**post**](ContextualThesaurusApi.md#post) | **POST** /api/async/contextualthesaurus | 
+[**get**](ContextualThesaurusApi.md#get) | **GET** /api/async/contextualthesaurus/result/{taskId} | Tries to get the result of a request using the task id of the request
+[**post**](ContextualThesaurusApi.md#post) | **POST** /api/async/contextualthesaurus | Analyses text and returns contextual thesaurus entries
 
 
 <a name="get"></a>
@@ -13,11 +13,12 @@ Method | HTTP request | Description
 > AsyncResponseContextualThesaurusResponse get(taskId)
 
 
+Tries to get the result of a request using the task id of the request
 
 ### Example
 ```javascript
-var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
-var defaultClient = ProWritingAidApiV2.ApiClient.instance;
+var ProWritingAidApi = require('pro_writing_aid_api');
+var defaultClient = ProWritingAidApi.ApiClient.instance;
 
 // Configure API key authorization: licenseCode
 var licenseCode = defaultClient.authentications['licenseCode'];
@@ -25,7 +26,7 @@ licenseCode.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //licenseCode.apiKeyPrefix = 'Token';
 
-var apiInstance = new ProWritingAidApiV2.ContextualThesaurusApi();
+var apiInstance = new ProWritingAidApi.ContextualThesaurusApi();
 
 var taskId = "taskId_example"; // String | 
 
@@ -61,11 +62,12 @@ Name | Type | Description  | Notes
 > AsyncResponseContextualThesaurusResponse post(requestp)
 
 
+Analyses text and returns contextual thesaurus entries
 
 ### Example
 ```javascript
-var ProWritingAidApiV2 = require('pro_writing_aid_api_v2');
-var defaultClient = ProWritingAidApiV2.ApiClient.instance;
+var ProWritingAidApi = require('pro_writing_aid_api');
+var defaultClient = ProWritingAidApi.ApiClient.instance;
 
 // Configure API key authorization: licenseCode
 var licenseCode = defaultClient.authentications['licenseCode'];
@@ -73,9 +75,9 @@ licenseCode.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //licenseCode.apiKeyPrefix = 'Token';
 
-var apiInstance = new ProWritingAidApiV2.ContextualThesaurusApi();
+var apiInstance = new ProWritingAidApi.ContextualThesaurusApi();
 
-var requestp = new ProWritingAidApiV2.ContextualThesaurusRequest(); // ContextualThesaurusRequest | 
+var requestp = new ProWritingAidApi.ContextualThesaurusRequest(); // ContextualThesaurusRequest | 
 
 apiInstance.post(requestp).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

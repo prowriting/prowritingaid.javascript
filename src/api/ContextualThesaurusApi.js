@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/AsyncResponseContextualThesaurusResponse'), require('../model/ContextualThesaurusRequest'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.ContextualThesaurusApi = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.AsyncResponseContextualThesaurusResponse, root.ProWritingAidApiV2.ContextualThesaurusRequest);
+    root.ProWritingAidApi.ContextualThesaurusApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AsyncResponseContextualThesaurusResponse, root.ProWritingAidApi.ContextualThesaurusRequest);
   }
 }(this, function(ApiClient, AsyncResponseContextualThesaurusResponse, ContextualThesaurusRequest) {
   'use strict';
@@ -50,6 +50,8 @@
 
 
     /**
+     * Tries to get the result of a request using the task id of the request
+     * Tries to get the result of a request using the task id of the request
      * @param {String} taskId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AsyncResponseContextualThesaurusResponse} and HTTP response
      */
@@ -87,6 +89,8 @@
     }
 
     /**
+     * Tries to get the result of a request using the task id of the request
+     * Tries to get the result of a request using the task id of the request
      * @param {String} taskId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AsyncResponseContextualThesaurusResponse}
      */
@@ -99,6 +103,8 @@
 
 
     /**
+     * Analyses text and returns contextual thesaurus entries
+     * Analyses text and returns contextual thesaurus entries
      * @param {module:model/ContextualThesaurusRequest} requestp 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AsyncResponseContextualThesaurusResponse} and HTTP response
      */
@@ -135,6 +141,8 @@
     }
 
     /**
+     * Analyses text and returns contextual thesaurus entries
+     * Analyses text and returns contextual thesaurus entries
      * @param {module:model/ContextualThesaurusRequest} requestp 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AsyncResponseContextualThesaurusResponse}
      */

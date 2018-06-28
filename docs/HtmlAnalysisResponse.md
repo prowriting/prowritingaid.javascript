@@ -1,4 +1,4 @@
-# ProWritingAidApiV2.HtmlAnalysisResponse
+# ProWritingAidApi.HtmlAnalysisResponse
 
 ## Properties
 Name | Type | Description | Notes

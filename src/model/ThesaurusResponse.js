@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./EntryMeaning'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.ThesaurusResponse = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.EntryMeaning);
+    root.ProWritingAidApi.ThesaurusResponse = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.EntryMeaning);
   }
 }(this, function(ApiClient, EntryMeaning) {
   'use strict';

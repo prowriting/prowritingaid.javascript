@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/AsyncResponseWordCloudResponse'), require('../model/WordCloudRequest'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.WordCloudApi = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.AsyncResponseWordCloudResponse, root.ProWritingAidApiV2.WordCloudRequest);
+    root.ProWritingAidApi.WordCloudApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AsyncResponseWordCloudResponse, root.ProWritingAidApi.WordCloudRequest);
   }
 }(this, function(ApiClient, AsyncResponseWordCloudResponse, WordCloudRequest) {
   'use strict';
@@ -50,6 +50,8 @@
 
 
     /**
+     * Tries to get the result of a request using the task id of the request
+     * Tries to get the result of a request using the task id of the request
      * @param {String} taskId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AsyncResponseWordCloudResponse} and HTTP response
      */
@@ -87,6 +89,8 @@
     }
 
     /**
+     * Tries to get the result of a request using the task id of the request
+     * Tries to get the result of a request using the task id of the request
      * @param {String} taskId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AsyncResponseWordCloudResponse}
      */
@@ -99,6 +103,8 @@
 
 
     /**
+     * Analyses text and returns a word cloud (as an image)
+     * Analyses text and returns a word cloud (as an image)
      * @param {module:model/WordCloudRequest} requestp 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AsyncResponseWordCloudResponse} and HTTP response
      */
@@ -135,6 +141,8 @@
     }
 
     /**
+     * Analyses text and returns a word cloud (as an image)
+     * Analyses text and returns a word cloud (as an image)
      * @param {module:model/WordCloudRequest} requestp 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AsyncResponseWordCloudResponse}
      */

@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/ThesaurusRequest'), require('../model/ThesaurusResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.ThesaurusApi = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.ThesaurusRequest, root.ProWritingAidApiV2.ThesaurusResponse);
+    root.ProWritingAidApi.ThesaurusApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.ThesaurusRequest, root.ProWritingAidApi.ThesaurusResponse);
   }
 }(this, function(ApiClient, ThesaurusRequest, ThesaurusResponse) {
   'use strict';
@@ -50,6 +50,7 @@
 
 
     /**
+     * Returns the thesaurus entries for a specific word
      * Returns the thesaurus entries for a specific word
      * @param {module:model/ThesaurusRequest} request 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ThesaurusResponse} and HTTP response
@@ -87,6 +88,7 @@
     }
 
     /**
+     * Returns the thesaurus entries for a specific word
      * Returns the thesaurus entries for a specific word
      * @param {module:model/ThesaurusRequest} request 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ThesaurusResponse}

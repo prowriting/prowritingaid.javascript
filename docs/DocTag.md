@@ -1,4 +1,4 @@
-# ProWritingAidApiV2.DocTag
+# ProWritingAidApi.DocTag
 
 ## Properties
 Name | Type | Description | Notes

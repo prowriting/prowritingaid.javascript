@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./AnalysisSummaryGraph'), require('./AnalysisSummarySubItem'), require('./SuggestionCategory'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.AnalysisSummaryItem = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.AnalysisSummaryGraph, root.ProWritingAidApiV2.AnalysisSummarySubItem, root.ProWritingAidApiV2.SuggestionCategory);
+    root.ProWritingAidApi.AnalysisSummaryItem = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AnalysisSummaryGraph, root.ProWritingAidApi.AnalysisSummarySubItem, root.ProWritingAidApi.SuggestionCategory);
   }
 }(this, function(ApiClient, AnalysisSummaryGraph, AnalysisSummarySubItem, SuggestionCategory) {
   'use strict';

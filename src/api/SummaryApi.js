@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/AsyncResponseSummaryAnalysisResponse'), require('../model/SummaryAnalysisRequest'));
   } else {
     // Browser globals (root is window)
-    if (!root.ProWritingAidApiV2) {
-      root.ProWritingAidApiV2 = {};
+    if (!root.ProWritingAidApi) {
+      root.ProWritingAidApi = {};
     }
-    root.ProWritingAidApiV2.SummaryApi = factory(root.ProWritingAidApiV2.ApiClient, root.ProWritingAidApiV2.AsyncResponseSummaryAnalysisResponse, root.ProWritingAidApiV2.SummaryAnalysisRequest);
+    root.ProWritingAidApi.SummaryApi = factory(root.ProWritingAidApi.ApiClient, root.ProWritingAidApi.AsyncResponseSummaryAnalysisResponse, root.ProWritingAidApi.SummaryAnalysisRequest);
   }
 }(this, function(ApiClient, AsyncResponseSummaryAnalysisResponse, SummaryAnalysisRequest) {
   'use strict';
@@ -50,6 +50,8 @@
 
 
     /**
+     * Tries to get the result of a request using the task id of the request
+     * Tries to get the result of a request using the task id of the request
      * @param {String} taskId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AsyncResponseSummaryAnalysisResponse} and HTTP response
      */
@@ -87,6 +89,8 @@
     }
 
     /**
+     * Tries to get the result of a request using the task id of the request
+     * Tries to get the result of a request using the task id of the request
      * @param {String} taskId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AsyncResponseSummaryAnalysisResponse}
      */
@@ -99,6 +103,8 @@
 
 
     /**
+     * Gets the summary analysis of a document
+     * Gets the summary analysis of a document
      * @param {module:model/SummaryAnalysisRequest} requestp 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AsyncResponseSummaryAnalysisResponse} and HTTP response
      */
@@ -135,6 +141,8 @@
     }
 
     /**
+     * Gets the summary analysis of a document
+     * Gets the summary analysis of a document
      * @param {module:model/SummaryAnalysisRequest} requestp 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AsyncResponseSummaryAnalysisResponse}
      */

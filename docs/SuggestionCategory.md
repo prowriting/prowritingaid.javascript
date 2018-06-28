@@ -1,4 +1,4 @@
-# ProWritingAidApiV2.SuggestionCategory
+# ProWritingAidApi.SuggestionCategory
 
 ## Properties
 Name | Type | Description | Notes
