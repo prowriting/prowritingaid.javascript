@@ -52,6 +52,8 @@ api.post(request)
 
 ## Documentation for API Endpoints
 
+All URIs are relative to https://api.prowritingaid.com
+
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ProWritingAidApi.ContextualThesaurusApi* | [**get**](docs/ContextualThesaurusApi.md#get) | **GET** /api/async/contextualthesaurus/result/{taskId} | Tries to get the result of a request using the task id of the request
