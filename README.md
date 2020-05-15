@@ -25,6 +25,39 @@ Or install package from the git repo:
 npm install prowriting/prowritingaid.javascript --save
 ```
 
+#### Webpack
+
+You'll need to adjust Webpack's configuration to resolve the dependency issue.
+
+##### Related Issues
+
+https://github.com/swagger-api/swagger-codegen/issues/3336
+
+https://medium.com/webpack/how-to-cope-with-broken-modules-in-webpack-4c0427fb23a
+
+##### Steps to resolve
+
+Add Imports Loader
+
+* https://webpack.js.org/loaders/imports-loader/
+
+* https://github.com/webpack-contrib/imports-loader#install
+
+Configure webpack
+
+```javascript
+module: {
+    rules: [
+        {
+            test: /pro_writing_aid_api\/.*\.js$/,
+            use: 'imports-loader?define=>false'
+        }
+    ]
+}
+```
+
+Thanks to @devkdouglass! https://github.com/prowriting/prowritingaid.javascript/issues/1#issuecomment-620249067
+
 ## Getting Started
 
 Please follow the [installation](#installation) instruction and execute the following JS code:
