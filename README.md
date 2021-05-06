@@ -5,6 +5,8 @@ Official ProWritingAid API Version 2
 - API version: v2
 - Package version: 2.0.0
 
+For more information, please visit [https://prowritingaid.com/en/App/API#js](https://prowritingaid.com/en/App/API#js)
+
 ## Installation
 
 ### For [Node.js](https://nodejs.org/)
